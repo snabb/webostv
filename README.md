@@ -27,6 +27,7 @@ Unimplemented / TODO
 
 ### webostv library
 
+- Documentation.
 - PIN based pairing.
 - UPnP discovery?
 - Some subscriptions missing?
@@ -34,7 +35,10 @@ Unimplemented / TODO
 
 ### webostvremote 
 
+- Documentation.
 - Make it look better.
+  * Colors.
+  * Clarify channel + program info etc.
 - Program guide.
 - TV mouse control.
 - TV keyboard input.

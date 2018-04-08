@@ -1,13 +1,44 @@
-webostv - Go package for controlling LG WebOS Smart TV
-======================================================
+webostv - Go package for controlling LG WebOS TV
+================================================
 
 [![GoDoc](https://godoc.org/github.com/snabb/webostv?status.svg)](https://godoc.org/github.com/snabb/webostv)
 
 This is Go library and a terminal application for remote control of
-LG WebOS televisions.
+LG WebOS smart televisions.
 
-Installation
-------------
+Simple example of using the library to turn off the TV:
+
+```Go
+package main
+
+import "github.com/snabb/webostv"
+
+func main() {
+	tv, err := webostv.DefaultDialer.Dial("LGsmartTV.lan")
+	if err != nil {
+		panic(err)
+	}
+	go tv.MessageHandler()
+
+	_, err = tv.Register("")
+	if err != nil {
+		panic(err)
+	}
+
+	err = tv.SystemTurnOff()
+	if err != nil {
+		panic(err)
+	}
+
+	err = tv.Close()
+	if err != nil {
+		panic(err)
+	}
+}
+```
+
+Installation of the remote control application
+----------------------------------------------
 
 Install Go compiler if you do not have it:
 ```

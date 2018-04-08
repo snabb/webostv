@@ -188,7 +188,7 @@ func (tv *Tv) Register(key string) (newKey string, err error) {
 				return "", err
 			}
 
-		case <-time.After(Timeout):
+		case <-time.After(RegisterTimeout):
 			return "", ErrTimeout
 		}
 		if respMsg.Type != "response" {
@@ -316,9 +316,10 @@ func (tv *Tv) RequestResponseParam(uri string, req Payload, resp interface{}) (e
 }
 
 var (
-	Timeout       = time.Second * 5
-	ErrTimeout    = errors.New("timeout")
-	ErrNoResponse = errors.New("no response")
+	Timeout         = time.Second * 5
+	RegisterTimeout = time.Second * 30
+	ErrTimeout      = errors.New("timeout")
+	ErrNoResponse   = errors.New("no response")
 )
 
 func (tv *Tv) Request(uri string, req Payload) (resp Payload, err error) {

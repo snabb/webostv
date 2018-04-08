@@ -4,7 +4,8 @@ webostv - Go package for controlling LG WebOS TV
 [![GoDoc](https://godoc.org/github.com/snabb/webostv?status.svg)](https://godoc.org/github.com/snabb/webostv)
 
 This is Go library and a terminal application for remote control of
-LG WebOS smart televisions.
+LG WebOS smart televisions. The development has been done on Linux and it
+works also on Windows. It has been tested with LG 42LB650V-ZN television.
 
 Simple example of using the library to turn off the TV:
 

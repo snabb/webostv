@@ -17,9 +17,9 @@ PATH=$PATH:/usr/local/go/bin
 
 Compile and install:
 ```
-go install github.com/snabb/webostv/cmd/webostvremote
+go get github.com/snabb/webostv/cmd/webostvremote
 ```
-The resulting binary is at: ~/go/bin/webostvremote
+The resulting binary is at: `~/go/bin/webostvremote`
 
 
 Unimplemented / TODO

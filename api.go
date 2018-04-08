@@ -13,6 +13,14 @@ import (
 	"time"
 )
 
+var (
+	Timeout               = time.Second * 5
+	RegisterTimeout       = time.Second * 30
+	ErrTimeout            = errors.New("timeout")
+	ErrNoResponse         = errors.New("no response")
+	ErrRegistrationFailed = errors.New("registration failed")
+)
+
 type Tv struct {
 	Address      string
 	ws           *websocket.Conn
@@ -208,8 +216,6 @@ func (tv *Tv) Register(key string) (newKey string, err error) {
 	return newKey, nil
 }
 
-var ErrRegistrationFailed = errors.New("registration failed")
-
 func (tv *Tv) writeJSON(v interface{}) error {
 	buf, err := json.Marshal(v)
 	if err != nil {
@@ -314,13 +320,6 @@ func (tv *Tv) RequestResponseParam(uri string, req Payload, resp interface{}) (e
 	}
 	return mapstructure.Decode(r, resp)
 }
-
-var (
-	Timeout         = time.Second * 5
-	RegisterTimeout = time.Second * 30
-	ErrTimeout      = errors.New("timeout")
-	ErrNoResponse   = errors.New("no response")
-)
 
 func (tv *Tv) Request(uri string, req Payload) (resp Payload, err error) {
 	var msg Msg

@@ -19,7 +19,7 @@ type Tv struct {
 	wsWriteMutex sync.Mutex
 	respCh       map[string]chan<- Msg
 	respChMutex  sync.Mutex
-	debug        func(string)
+	debugFunc    func(string)
 }
 
 type Dialer struct {
@@ -68,18 +68,18 @@ func (dialer *Dialer) Dial(address string) (tv *Tv, err error) {
 	}, nil
 }
 
-func (tv *Tv) Debug(str string, buf []byte) {
-	if tv.debug != nil {
+func (tv *Tv) debug(str string, buf []byte) {
+	if tv.debugFunc != nil {
 		if buf != nil {
-			tv.debug(str + string(buf))
+			tv.debugFunc(str + string(buf))
 		} else {
-			tv.debug(str)
+			tv.debugFunc(str)
 		}
 	}
 }
 
-func (tv *Tv) SetDebug(debug func(string)) {
-	tv.debug = debug
+func (tv *Tv) SetDebug(debugFunc func(string)) {
+	tv.debugFunc = debugFunc
 }
 
 func helloPayload() Payload {
@@ -215,7 +215,7 @@ func (tv *Tv) writeJSON(v interface{}) error {
 	if err != nil {
 		return errors.Wrap(err, "JSON marshal error")
 	}
-	tv.Debug("write: ", buf)
+	tv.debug("write: ", buf)
 	tv.wsWriteMutex.Lock()
 	err = tv.ws.WriteMessage(websocket.TextMessage, buf)
 	tv.wsWriteMutex.Unlock()
@@ -288,15 +288,15 @@ func (tv *Tv) MessageHandler() (err error) {
 		if err != nil {
 			return err
 		}
-		tv.Debug("read: ", p)
+		tv.debug("read: ", p)
 		if messageType != websocket.TextMessage {
-			tv.Debug("non-text message type, ignored", nil)
+			tv.debug("non-text message type, ignored", nil)
 			continue
 		}
 		var msg Msg
 		err = json.Unmarshal(p, &msg)
 		if err != nil {
-			tv.Debug("invalid json in message, ignored", nil)
+			tv.debug("invalid json in message, ignored", nil)
 			continue
 		}
 		tv.respChMutex.Lock()

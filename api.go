@@ -177,18 +177,23 @@ func (tv *Tv) Register(key string) (newKey string, err error) {
 	var respMsg Msg
 	var ok bool
 
-	select {
-	case respMsg, ok = <-ch:
-		if !ok {
-			return "", ErrNoResponse
-		}
-		err = checkResponse(respMsg)
-		if err != nil {
-			return "", err
-		}
+	for {
+		select {
+		case respMsg, ok = <-ch:
+			if !ok {
+				return "", ErrNoResponse
+			}
+			err = checkResponse(respMsg)
+			if err != nil {
+				return "", err
+			}
 
-	case <-time.After(Timeout):
-		return "", ErrTimeout
+		case <-time.After(Timeout):
+			return "", ErrTimeout
+		}
+		if respMsg.Type != "response" {
+			break
+		}
 	}
 	if respMsg.Type != "registered" {
 		return "", ErrRegistrationFailed

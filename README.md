@@ -37,8 +37,8 @@ func main() {
 }
 ```
 
-Installation of the remote control application
-----------------------------------------------
+Installing the remote control application
+-----------------------------------------
 
 Install Go compiler if you do not have it:
 ```

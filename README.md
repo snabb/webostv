@@ -19,6 +19,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	defer tv.Close()
 	go tv.MessageHandler()
 
 	_, err = tv.Register("")
@@ -27,11 +28,6 @@ func main() {
 	}
 
 	err = tv.SystemTurnOff()
-	if err != nil {
-		panic(err)
-	}
-
-	err = tv.Close()
 	if err != nil {
 		panic(err)
 	}

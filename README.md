@@ -62,15 +62,18 @@ Unimplemented / TODO
 - Documentation.
 - PIN based pairing.
 - UPnP discovery?
-- Some subscriptions missing?
+- Add missing subscriptions?
 - Play media? 
 
 ### webostvremote 
 
 - Documentation.
+- Volume mute.
+- Make "store" a separate generic package (or find pre-existing one).
 - Make it look better.
   * Colors.
   * Clarify channel + program info etc.
+- Error popup?
 - Program guide.
 - TV mouse control.
 - TV keyboard input.

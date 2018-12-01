@@ -34,12 +34,12 @@ func main() {
 }
 ```
 
-Installing the remote control application
------------------------------------------
+Installing and using the remote control application
+---------------------------------------------------
 
 Install Go compiler if you do not have it:
 ```
-curl https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz | sudo tar xzC /usr/local
+curl https://dl.google.com/go/go1.11.2.linux-amd64.tar.gz | sudo tar xzC /usr/local
 PATH=$PATH:/usr/local/go/bin
 ```
 (See https://golang.org/dl/ for newer version and more detailed
@@ -51,6 +51,14 @@ go get github.com/snabb/webostv/cmd/webostvremote
 ```
 The resulting binary is at: `~/go/bin/webostvremote`
 
+To use the remote control program with the TV, the IP address or name of the
+TV can be given as a command line argument:
+```
+~/go/bin/webostvremote 192.0.2.123
+```
+If the address is not supplied, it will try to connect to the default
+address `LGsmartTV.lan`.
+
 
 Unimplemented / TODO
 --------------------
@@ -58,6 +66,7 @@ Unimplemented / TODO
 ### webostv library
 
 - Documentation.
+- Consider the method names, some could be shortened.
 - PIN based pairing.
 - UPnP discovery?
 - Add missing subscriptions?

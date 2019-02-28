@@ -24,13 +24,11 @@ Compile and install:
 git clone https://github.com/snabb/webostv.git
 cd webostv
 go build ./cmd/webostvremote
-
 ```
 The compiled binary `webostvremote` is produced in the current working
 directory.
 
-To use the remote control program with the TV, the IP address or name of the
-TV can be given as a command line argument:
+The IP address or name of the TV can be given as a command line argument:
 ```
 ./webostvremote 192.0.2.123
 ```

@@ -11,7 +11,7 @@ on OS X as well. It has been tested with LG 42LB650V-ZN television.
 Installing and using the remote control application
 ---------------------------------------------------
 
-Download pre-built executable for your OS/architectore from: 
+Download pre-built executable for your OS/architecture from: 
 https://github.com/snabb/webostv/releases
 
 The IP address or name of the TV can be given as a command line argument:

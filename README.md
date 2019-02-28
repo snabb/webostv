@@ -11,6 +11,20 @@ on OS X as well. It has been tested with LG 42LB650V-ZN television.
 Installing and using the remote control application
 ---------------------------------------------------
 
+Download pre-built executable for your OS/architectore from: 
+https://github.com/snabb/webostv/releases
+
+The IP address or name of the TV can be given as a command line argument:
+```
+./webostvremote 192.0.2.123
+```
+If the address is not supplied, it will try to connect to the default
+address `LGsmartTV.lan`.
+
+
+Building the remote control application from source
+---------------------------------------------------
+
 Install Go compiler if you do not have it:
 ```
 curl https://dl.google.com/go/go1.12.linux-amd64.tar.gz | sudo tar xzC /usr/local
@@ -19,7 +33,7 @@ PATH=$PATH:/usr/local/go/bin
 (See https://golang.org/dl/ for newer version and more detailed
 instructions.)
 
-Compile and install:
+Compile:
 ```
 git clone https://github.com/snabb/webostv.git
 cd webostv
@@ -27,13 +41,6 @@ go build ./cmd/webostvremote
 ```
 The compiled binary `webostvremote` is produced in the current working
 directory.
-
-The IP address or name of the TV can be given as a command line argument:
-```
-./webostvremote 192.0.2.123
-```
-If the address is not supplied, it will try to connect to the default
-address `LGsmartTV.lan`.
 
 
 Simple example of using the library to turn off the TV

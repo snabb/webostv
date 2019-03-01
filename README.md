@@ -11,10 +11,12 @@ on OS X as well. It has been tested with LG 42LB650V-ZN television.
 Installing and using the remote control application
 ---------------------------------------------------
 
-Download pre-built executable for your OS/architecture from: 
+Download pre-built executable binary for your OS/architecture from:
 https://github.com/snabb/webostv/releases
 
-The IP address or name of the TV can be given as a command line argument:
+Run the downloaded application in a terminal window. On Linux, add execute
+permissions after downloading (`chmod 755 webostvremote-linux-amd64`). The
+IP address or name of the TV can be given as a command line argument:
 ```
 ./webostvremote 192.0.2.123
 ```
@@ -83,7 +85,7 @@ Unimplemented / TODO
 - Add missing subscriptions?
 - Play media? 
 
-### webostvremote 
+### webostvremote application
 
 - Documentation.
 - Volume mute.

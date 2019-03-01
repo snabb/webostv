@@ -42,7 +42,8 @@ cd webostv
 go build ./cmd/webostvremote
 ```
 The compiled binary `webostvremote` is produced in the current working
-directory.
+directory. If there are errors, try again with up-to-date Go compiler
+version.
 
 
 Simple example of using the library to turn off the TV

@@ -117,7 +117,6 @@ func (i *tvInfo) monitorTvCurrentInfo(quit chan struct{}) (err error) {
 		i.foregroundAppInfo = info
 		i.update()
 		i.Unlock()
-		app.Draw()
 
 		if startChannelMonitor {
 			app.logger.Debug("starting channel monitor")
@@ -138,7 +137,6 @@ func (i *tvInfo) monitorTvCurrentInfo(quit chan struct{}) (err error) {
 			i.tvCurrentChannel = webostv.TvCurrentChannel{}
 			i.update()
 			i.Unlock()
-			app.Draw()
 			if err != nil {
 				return err
 			}
@@ -174,7 +172,6 @@ func (i *tvInfo) monitorTvCurrentChannel(quit chan struct{}) (err error) {
 			i.tvCurrentChannel = cur
 			i.update()
 			i.Unlock()
-			app.Draw()
 			return nil
 		}, quit)
 

@@ -18,7 +18,7 @@ func newVolume() *volume {
 
 func (v *volume) update(volume int) {
 	v.SetPercent(volume)
-	app.Draw()
+	go app.Draw()
 }
 
 func (v *volume) InputHandler() func(event *tcell.EventKey, setFocus func(p tview.Primitive)) {

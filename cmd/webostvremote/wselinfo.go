@@ -23,4 +23,5 @@ func newSelInfo() *selInfo {
 func (s *selInfo) update(str string) {
 	s.SetText(str)
 	s.ScrollToBeginning()
+	go app.Draw()
 }

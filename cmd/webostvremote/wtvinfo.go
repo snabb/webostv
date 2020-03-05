@@ -117,6 +117,9 @@ func (i *tvInfo) monitorTvCurrentInfo(quit chan struct{}) (err error) {
 		i.foregroundAppInfo = info
 		i.update()
 		i.Unlock()
+		defer func() {
+			go app.Draw()
+		}()
 
 		if startChannelMonitor {
 			app.logger.Debug("starting channel monitor")

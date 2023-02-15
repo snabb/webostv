@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/gdamore/tcell"
-	"github.com/rivo/tview"
 	"sync"
+
+	"github.com/gdamore/tcell/v2"
+	"github.com/rivo/tview"
 )
 
 type Slider struct {

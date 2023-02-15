@@ -2,16 +2,17 @@ package main
 
 import (
 	"fmt"
-	"github.com/gdamore/tcell"
-	"github.com/inconshreveable/log15"
-	"github.com/ogier/pflag"
-	"github.com/rivo/tview"
-	"github.com/snabb/webostv"
 	"math/rand"
 	"os"
 	"path/filepath"
 	"sync"
 	"time"
+
+	"github.com/gdamore/tcell/v2"
+	"github.com/inconshreveable/log15"
+	"github.com/ogier/pflag"
+	"github.com/rivo/tview"
+	"github.com/snabb/webostv"
 )
 
 const DefaultAddress = "LGsmartTV.lan"

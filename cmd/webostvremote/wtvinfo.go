@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/gdamore/tcell"
+	"sync"
+	"time"
+
+	"github.com/gdamore/tcell/v2"
 	"github.com/pkg/errors"
 	"github.com/rivo/tview"
 	"github.com/snabb/webostv"
-	"sync"
-	"time"
 )
 
 type tvInfo struct {
